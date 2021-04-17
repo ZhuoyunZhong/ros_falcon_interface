@@ -1,5 +1,5 @@
 /***
- * @file falconDriver.cpp
+ * @file falcon_interface.cpp
  * @brief Falcon class
  * Receive button messages and position messages from Falcon
  * Send LED, position and force command to Falcon
