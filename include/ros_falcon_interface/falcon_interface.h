@@ -39,14 +39,14 @@ protected:
 
     // Current position
     std::array<double, 3> m_pos;
-    geometry_msgs::Point pos_point;
+    geometry_msgs::Point m_pos_point;
     // Center position
     std::array<double, 3> m_center;
     // Force
     std::array<double, 3> m_force;
 
     // Desired position
-    std::array<double, 3> desired_pos;
+    std::array<double, 3> m_desired_pos;
     // Haptic Mode
     int m_hapticMode;
     // PID variables

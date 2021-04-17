@@ -28,7 +28,7 @@ Falcon::Falcon()
     // Haptic mode
     m_hapticMode = 1;
     m_center[2] = 0.125;
-    desired_pos = m_center;
+    m_desired_pos = m_center;
 
     // ROS
     mode_sub = node.subscribe("set_falcon_haptic_mode", 1, &Falcon::setHapticMode, this);
@@ -80,10 +80,10 @@ void Falcon::runFunction()
 
     // Publish current position
     m_pos = m_falconDevice->getPosition();
-    pos_point.x = m_pos[0];
-    pos_point.y = m_pos[1];
-    pos_point.z = m_pos[2];
-    pos_pub.publish(pos_point);
+    m_pos_point.x = m_pos[0];
+    m_pos_point.y = m_pos[1];
+    m_pos_point.z = m_pos[2];
+    pos_pub.publish(m_pos_point);
 
     // Detect buttons
     if(m_falconDevice->getFalconGrip()->getDigitalInputs() 
@@ -143,7 +143,7 @@ void Falcon::runFunction()
     // Position Keeping
     else if (m_hapticMode == 1)
     {
-        moveTODesiredPoint(desired_pos);
+        moveTODesiredPoint(m_desired_pos);
     }
     // Constant force
     else if (m_hapticMode == 2)
@@ -253,9 +253,9 @@ void Falcon::setPointCallback(const geometry_msgs::Point p)
     ROS_INFO("The haptic mode is set to: Position Keeping mode.");
 
     // Desired position
-    desired_pos[0] = p.x;
-    desired_pos[1] = p.y;
-    desired_pos[2] = p.z;
+    m_desired_pos[0] = p.x;
+    m_desired_pos[1] = p.y;
+    m_desired_pos[2] = p.z;
 }
 
 
