@@ -241,7 +241,12 @@ void Falcon::setForceCallback(const geometry_msgs::Vector3 f)
 
 void Falcon::setPointCallback(const geometry_msgs::Point p)
 {
-    // Move until reaching the point
+    // Check validation
+    if (fabs(p.x) > 0.06 || fabs(p.y) > 0.06 || p.z < 0.075 || p.z > 0.175)
+    {
+        ROS_INFO("Goal position invalid.");
+        return;
+    }
 
     // Change mode to position keeping
     m_hapticMode = 1;
