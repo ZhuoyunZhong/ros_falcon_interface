@@ -101,4 +101,4 @@ The following ROS topics and methods are provided to interact with the Novint Fa
 
    
 
-For more potential usages of the interface and driver for Novint Falcon, please also check the [https://github.com/libnifalcon/libnifalcon/tree/master/examples](https://github.com/libnifalcon/libnifalcon/tree/master/examples) provided by [libnifalcon](https://github.com/libnifalcon/libnifalcon).
+For more potential usages of the interface and driver for Novint Falcon, please also check the [examples](https://github.com/libnifalcon/libnifalcon/tree/master/examples) provided by [libnifalcon](https://github.com/libnifalcon/libnifalcon).
