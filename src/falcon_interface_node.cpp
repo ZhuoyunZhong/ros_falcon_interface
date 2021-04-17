@@ -9,13 +9,13 @@
  */
 
 
-#include "ros_falcon_driver/falcon_driver.h"
+#include "ros_falcon_interface/falcon_interface.h"
 
 
 int main(int argc, char* argv[])
 {
     // Init ROS
-    ros::init(argc, argv, "falcon_driver");
+    ros::init(argc, argv, "falcon_interface");
 
     // Load Falcon Device
 	Falcon f;

@@ -9,7 +9,7 @@
  */
 
 
-#include "ros_falcon_driver/falcon_driver.h"
+#include "ros_falcon_interface/falcon_interface.h"
 
 
 Falcon::Falcon()

@@ -9,8 +9,8 @@
  */
 
 
-#ifndef FALCON_DRIVER_H
-#define FALCON_DRIVER_H
+#ifndef FALCON_INTERFACE_H
+#define FALCON_INTERFACE_H
 
 #include <ros/ros.h>
 #include <string>

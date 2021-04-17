@@ -22,7 +22,7 @@ sudo make install
 After installing [libnifalcon](https://github.com/libnifalcon/libnifalcon), you could download and make this repository.
 
 ```
-git clone git@github.com:ZhuoyunZhong/ros_falcon_driver.git
+git clone git@github.com:ZhuoyunZhong/ros_falcon_interface.git
 cd ..
 catkin_make
 ```
@@ -34,7 +34,7 @@ catkin_make
 - Run this driver by
 
   ```
-  rosrun ros_falcon_driver ros_falcon_driver
+  rosrun ros_falcon_interface ros_falcon_interface
   ```
 
   You may need to calibrate your device, please follow the instruction. The robot should be able to home itself at (0.0, 0.0, 0.125), which is considered to be the center point of its workspace.

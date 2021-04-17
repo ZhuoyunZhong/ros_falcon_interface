@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.2)
-project(ros_falcon_driver)
+project(ros_falcon_interface)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
@@ -105,7 +105,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
 #  INCLUDE_DIRS include
-#  LIBRARIES ros_falcon_driver
+#  LIBRARIES ros_falcon_interface
 #  CATKIN_DEPENDS roscpp rospy std_msgs geometry_msgs
 #  DEPENDS system_lib
 )
@@ -123,7 +123,7 @@ include_directories(
 
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/ros_falcon_driver.cpp
+#   src/${PROJECT_NAME}/ros_falcon_interface.cpp
 # )
 
 ## Add cmake target dependencies of the library
@@ -131,14 +131,14 @@ include_directories(
 ## either from message generation or dynamic reconfigure
 # add_dependencies(${PROJECT_NAME} ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
-add_executable(ros_falcon_driver src/falcon_driver.cpp 
-                                 src/falcon_driver_node.cpp)
-target_link_libraries(ros_falcon_driver ${catkin_LIBRARIES} nifalcon nifalcon_cli_base) 
+add_executable(ros_falcon_interface src/falcon_interface.cpp 
+                                 src/falcon_interface_node.cpp)
+target_link_libraries(ros_falcon_interface ${catkin_LIBRARIES} nifalcon nifalcon_cli_base) 
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/ros_falcon_driver_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/ros_falcon_interface_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -202,7 +202,7 @@ target_link_libraries(ros_falcon_driver ${catkin_LIBRARIES} nifalcon nifalcon_cl
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_falcon_driver.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_ros_falcon_interface.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
