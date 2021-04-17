@@ -1,4 +1,4 @@
-# ROS Falcon Driver
+# ROS Falcon Interface
 
 This package provides a ROS interface for Novint Falcon haptic controller. This repository is developed based on the falcon library [libnifalcon](https://github.com/libnifalcon/libnifalcon).
 
@@ -31,7 +31,7 @@ catkin_make
 
 - Connect the Novint Falcon device with the computer
 
-- Run this driver by
+- Run this interface by
 
   ```
   rosrun ros_falcon_interface ros_falcon_interface
@@ -39,7 +39,7 @@ catkin_make
 
   You may need to calibrate your device, please follow the instruction. The robot should be able to home itself at (0.0, 0.0, 0.125), which is considered to be the center point of its workspace.
 
-## Driver Details
+## Interface Details
 
 The following ROS topics and methods are provided to interact with the Novint Falcon. **Please be careful when setting up force feedback or position goal. Falcon may have strong reaction due to its controller design.**
 
@@ -101,4 +101,4 @@ The following ROS topics and methods are provided to interact with the Novint Fa
 
    
 
-For more potential usages of the driver and Novint Falcon, please also check the [https://github.com/libnifalcon/libnifalcon/tree/master/examples](https://github.com/libnifalcon/libnifalcon/tree/master/examples) provided by [libnifalcon](https://github.com/libnifalcon/libnifalcon).
+For more potential usages of the interface and driver for Novint Falcon, please also check the [https://github.com/libnifalcon/libnifalcon/tree/master/examples](https://github.com/libnifalcon/libnifalcon/tree/master/examples) provided by [libnifalcon](https://github.com/libnifalcon/libnifalcon).
