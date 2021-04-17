@@ -22,8 +22,8 @@ Falcon::Falcon()
 
     // PID variables
     Kp = {70, 70, 90};
-    Ki = {0.0, 0.0, 0.0};
-    Kd = {500.0, 500.0, 500.0};
+    Ki = {1.0, 1.0, 1.0};
+    Kd = {1.5, 1.5, 2.0};
 
     // Haptic mode
     m_hapticMode = 1;
@@ -272,8 +272,8 @@ bool Falcon::moveTODesiredPoint(std::array<double, 3> goal_pos)
     {
         // Error
         e[i] = m_pos[i] - goal_pos[i];
-        e_i[i] += e[i];
-        e_d[i] = e[i] - prev_e[i];
+        e_i[i] += e[i] / 1000.0;
+        e_d[i] = (e[i] - prev_e[i]) * 1000;
         
         // Force
         m_force[i] = - Kp[i]*e[i] - Ki[i]*e_i[i] - Kd[i]*e_d[i];
@@ -284,8 +284,9 @@ bool Falcon::moveTODesiredPoint(std::array<double, 3> goal_pos)
 
     // Check if reach the desired position
     float threshold = 0.002;
+    float threshold_d = 2.0;
     if (fabs(e[0]) < threshold && fabs(e[1]) < threshold && fabs(e[2]) < threshold && 
-        fabs(e_d[0])< threshold && fabs(e_d[1]) < threshold && fabs(e_d[2]) < threshold)
+        fabs(e_d[0])< threshold_d && fabs(e_d[1]) < threshold_d && fabs(e_d[2]) < threshold_d)
     {
         // Clear the stored error message
         prev_e = {0.0, 0.0, 0.0};

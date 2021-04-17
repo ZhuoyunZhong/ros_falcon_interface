@@ -97,7 +97,7 @@ The following ROS topics and methods are provided to interact with the Novint Fa
    z: 0.15"
    ```
 
-   A PD controller is implemented and tuned in order to let falcon to reach the desired goal. The haptic mode will be set to position keeping mode. The approximate valid range for 3 axes are -0.06<x<0.06, -0.06<y<0.06 and 0.075<z<0.175.
+   A PID controller is implemented and tuned in order to let falcon to reach the desired goal. The haptic mode will be set to position keeping mode. The approximate valid range for 3 axes are -0.06<x<0.06, -0.06<y<0.06 and 0.075<z<0.175.
 
    
 
