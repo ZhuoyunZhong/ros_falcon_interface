@@ -27,6 +27,8 @@ cd ..
 catkin_make
 ```
 
+Permission
+
 ## Running
 
 - Connect the Novint Falcon device with the computer
