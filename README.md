@@ -19,15 +19,29 @@ make -j10
 sudo make install
 ```
 
-After installing [libnifalcon](https://github.com/libnifalcon/libnifalcon), you could download and make this repository.
+After installing [libnifalcon](https://github.com/libnifalcon/libnifalcon), download and make this repository.
 
 ```
+cd catkin_ws/src
 git clone git@github.com:ZhuoyunZhong/ros_falcon_interface.git
 cd ..
 catkin_make
 ```
 
-Permission
+If you are not running as root, you might encounter the "firmware can not be found" error. According to [libnifalcon](https://github.com/libnifalcon/libnifalcon), you will need to set up USB permissions to run its library.
+
+```
+cd ~/catkin_ws/src/ros_falcon_interface/linux
+sudo cp 40-novint-falcon-udev.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules
+sudo udevadm trigger
+```
+
+Unplug and re-plug your device and try
+
+`findfalcons`
+
+It should be able to find the falcon now.
 
 ## Running
 
@@ -99,7 +113,7 @@ The following ROS topics and methods are provided to interact with the Novint Fa
    z: 0.15"
    ```
 
-   A PID controller is implemented and tuned in order to let falcon to reach the desired goal. The haptic mode will be set to position keeping mode. The approximate valid range for 3 axes are -0.06<x<0.06, -0.06<y<0.06 and 0.075<z<0.175.
+   A PID controller is implemented and tuned in order to let falcon to reach the desired goal. The haptic mode will be set to position keeping mode. The approximate valid range for 3 axes are -0.06 < x < 0.06, -0.06 < y < 0.06 and 0.075 < z < 0.175.
 
    
 
